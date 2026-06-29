@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 
@@ -13,25 +12,27 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-       $users = [
-    [
-        'name' => 'Superadmin',
-        'email' => 'superadmin@gmail.com',
-        'role' => 'Superadmin'
-    ],
-    [
-        'name' => 'Admin',
-        'email' => 'admin@gmail.com',
-        'role' => 'Admin'
-    ],
-];
+        $users = [
+            [
+                'name'  => 'Superadmin',
+                'email' => 'superadmin@gmail.com',
+                'role'  => 'Superadmin'
+            ],
+            [
+                'name'  => 'Admin',
+                'email' => 'admin@gmail.com',
+                'role'  => 'Admin'
+            ],
+        ];
 
-foreach ($users as $user) {
-    User::factory()->create([
-        'name' => $user['name'],
-        'email' => $user['email'],
-        'role' => $user['role'],
-    ]);
-}
+        foreach ($users as $user) {
+            User::create([
+                'name'              => $user['name'],
+                'email'             => $user['email'],
+                'role'              => $user['role'],
+                'password'          => bcrypt('password'), // Mengunci password agar fix bernilai "password"
+                'email_verified_at' => now(),
+            ]);
+        }
     }
 }
