@@ -7,7 +7,7 @@
     <title>{{ $setting->app_name }} | {{ $title }}</title>
     <meta content="{{ $setting->description }}" name="description">
     <meta content="{{ $setting->keywords }}" name="keywords">
-    <meta content="Dewiyana" name="author">
+    <meta content="Fadel Muhammad" name="author">
 
     <link href="{{ $setting->logo ? asset('storage/' . $setting->logo) : asset('niceadmin/img/logo.png') }}"
         rel="icon">
